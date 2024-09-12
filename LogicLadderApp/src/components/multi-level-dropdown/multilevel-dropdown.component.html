@@ -1,0 +1,51 @@
+<div>
+    
+    <select (change)="onSelectionChange($event, null)">
+      <option [value]="null" disabled selected>Select Organization</option>
+      <option *ngFor="let item of data" [ngValue]="item">{{ item.name }}</option>
+    </select>
+ 
+    <ng-container *ngIf="selectedChild">
+      <select (change)="onSelectionChange($event, selectedChild)">
+        <option [value]="null" disabled selected>Select Facility</option>
+        <option *ngFor="let child of selectedChild.child" [ngValue]="child">{{ child.name }}</option>
+      </select>
+    </ng-container>
+  
+    <ng-container *ngIf="selectedSubChild">
+      <select (change)="onSelectionChange($event, selectedSubChild)">
+        <option [value]="null" disabled selected>Select Room</option>
+        <option *ngFor="let subChild of selectedSubChild.child" [ngValue]="subChild">{{ subChild.name }}</option>
+      </select>
+    </ng-container>
+  
+    <ng-container *ngIf="selectedSubSubChild">
+      <select>
+        <option [value]="null" disabled selected>Select Room Details</option>
+        <option *ngFor="let subSubChild of selectedSubSubChild.child" [ngValue]="subSubChild">{{ subSubChild.name }}</option>
+      </select>
+    </ng-container>
+</div>
+   
+<!-- <button mat-button [matMenuTriggerFor]="about">
+  <div class="valign-center">
+    <span>Select Organization</span>
+    <i class="material-icons">arrow_drop_down</i>
+  </div>
+</button>
+
+
+<mat-menu #about="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="services">Services</button>
+  <button mat-menu-item>Partners</button>
+</mat-menu>
+<mat-menu #services="matMenu">
+  <button mat-menu-item>Service1</button>
+  <button mat-menu-item>Service2</button>
+  <button mat-menu-item>Service3</button>
+  <button mat-menu-item>Service4</button>
+</mat-menu> -->
+   
+  
+  
+  
